@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Attractor : MonoBehaviour {
     
     protected const float G = 10.0f;
-    private List<GameObject> bodyList;
+    public List<GameObject> bodyList;
 
     private void Start()
     {
@@ -38,9 +39,11 @@ public class Attractor : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        Debug.Log(transform.parent.name + " tryna succ " + col.transform.parent.name);
+        Debug.Log("tag: " + tag + " | col tag: " + col.gameObject.tag);
         if (!(tag == "Planet" && col.gameObject.tag == "Planet") && col.transform.parent.gameObject.GetComponent<Rigidbody2D>())
         {
-            Debug.Log("Added " + col.name + " to bodylist");
+            Debug.Log("Added " + col.transform.parent.name + " to bodylist");
             bodyList.Add(col.transform.parent.gameObject);
         }
     }
@@ -53,10 +56,10 @@ public class Attractor : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        foreach (GameObject body in bodyList)
+        for (int i = 0; i < bodyList.Count; i++)
         {
-            Debug.Log(this.name + " is succing " + body.name);
-            succ(body);
+            Debug.Log(this.name + " is succing " + bodyList[i].name);
+            succ(bodyList[i]);
         }
     }
 
