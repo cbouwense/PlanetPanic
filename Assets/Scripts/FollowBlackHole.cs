@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FollowBlackHole : MonoBehaviour {
-
+    
     public GameObject blackHole;
 	
 	// Update is called once per frame

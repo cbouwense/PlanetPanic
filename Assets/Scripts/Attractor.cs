@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Attractor : MonoBehaviour {
 
-    private List<Rigidbody2D> bodyList;
+    private List<GameObject> bodyList;
     // TODO: make this something meaningful eventually
     protected const float G = 10.0f;
 
@@ -16,12 +16,12 @@ public class Attractor : MonoBehaviour {
  *  ///  ///  //////////  ///     ///  ///     ///
  *   //////   //////////  ///////////  ///////////
  */ 
-    void succ(Rigidbody2D target)
+    void succ(GameObject target)
     {
         // Calculate force due to gravity
-        Rigidbody2D myRB = this.GetComponent<Rigidbody2D>();
+        Rigidbody2D myRB = transform.parent.GetComponent<Rigidbody2D>();
         float radius = Vector2.Distance(target.transform.position, transform.position);
-        float gravForce = G * myRB.mass * target.mass / Mathf.Pow(radius, 2);
+        float gravForce = G * myRB.mass * target.GetComponent<Rigidbody2D>().mass / Mathf.Pow(radius, 2);
 
         // Get vector from target to us
         Vector2 target2Us = transform.position - target.transform.position;
@@ -33,28 +33,36 @@ public class Attractor : MonoBehaviour {
 
     void Start()
     {
-        bodyList = new List<Rigidbody2D>();
+        bodyList = new List<GameObject>();
     }
 
     void FixedUpdate()
     {
-        foreach (Rigidbody2D body in bodyList)
+        foreach (GameObject body in bodyList)
         {
-            Debug.Log(this.name + " is succing " + body.name);
-            succ(body);
+            // Only succ if it's black hole on planet action
+            if (!(tag == "Planet" && body.tag == "Planet"))
+            {
+                Debug.Log(this.name + " is succing " + body.name);
+                succ(body);
+            }
         }
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log(col.gameObject.name + " entered " + this.name + "'s sphere of influence");
-        bodyList.Add(col.gameObject.GetComponent<Rigidbody2D>());
+        if (col.gameObject.GetComponent<Rigidbody2D>())
+        {
+            bodyList.Add(col.gameObject);
+        }
+            
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
         Debug.Log(col.gameObject.name + " exited " + this.name + "'s sphere of influence");
-        bodyList.Remove(col.gameObject.GetComponent<Rigidbody2D>());
+        bodyList.Remove(col.gameObject);
     }
     
     private bool targetIsSmaller(Rigidbody2D target)

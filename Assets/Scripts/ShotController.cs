@@ -45,12 +45,12 @@ public class ShotController : MonoBehaviour {
         // Stop drawing the line.
         GameObject.Destroy(myLine);
 
+        // Stop the black hole from moving.
+        GetComponent<Rigidbody2D>().velocity = new Vector2();
+
         // Calculate a force vector to hit the ball with.
         Vector3 mouseCoords = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Debug.Log("pos: " + transform.position);
-        Debug.Log("mousePos: " + mouseCoords);
         Vector2 hitForce = (transform.position - mouseCoords) * hitForceConstant;
-        Debug.Log("hitForce: " + hitForce);
 
         // Hit the ball with the force vector.
         GetComponent<Rigidbody2D>().AddForce(hitForce);

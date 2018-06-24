@@ -1,0 +1,11 @@
++ Level start
++ Camera follow blackhole
++ Blackhole starts stationary
++ Ability to hit blackhole
+	+ no net momentum
++ If something is smaller than you, absorb it
+- Gravity effects on every object
+- Gain mass from absorbtions
+- Time limit for gaining enough mass
+- Go to next level
+- Go through all levels to win
