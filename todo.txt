@@ -1,0 +1,27 @@
+MVP:
++ Level start
++ Camera follow blackhole
++ Blackhole starts stationary
++ Ability to hit blackhole
+	+ no net momentum
++ If something is smaller than you, absorb it
++ Gravity effects on every object
++ Gain mass from absorbtions
++ Go to next level
++ Time limit for gaining enough mass
+- Go through all levels to win
+
+Finish:
+- Start Menu
+	- Play
+	- Level Select
+	- Exit
+- Sound Effects
+	- Hitting
+	- Absorbing
+	- Stage complete
+- Music (KSP)
++ Level timer
+- All assets imported
++ Mass meter, (your's out of total)
+- Create 10 levels
