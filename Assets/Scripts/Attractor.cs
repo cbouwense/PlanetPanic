@@ -5,7 +5,7 @@ using System.Linq;
 
 public class Attractor : MonoBehaviour {
     
-    protected const float G = 10.0f;
+    protected const float G = 25.0f;
     public List<GameObject> bodyList;
 
     private void Start()
@@ -58,8 +58,15 @@ public class Attractor : MonoBehaviour {
     {
         for (int i = 0; i < bodyList.Count; i++)
         {
-            Debug.Log(this.name + " is succing " + bodyList[i].name);
-            succ(bodyList[i]);
+            try
+            {
+                Debug.Log(this.name + " is succing " + bodyList[i].name);
+                succ(bodyList[i]);
+            }
+            catch (MissingReferenceException e)
+            {
+                Debug.Log("B");
+            }
         }
     }
 

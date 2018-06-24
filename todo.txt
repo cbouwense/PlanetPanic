@@ -12,16 +12,16 @@ MVP:
 - Go through all levels to win
 
 Finish:
-- Start Menu
-	- Play
++ Start Menu
+	+ Play
 	- Level Select
-	- Exit
+	+ Exit
 - Sound Effects
 	- Hitting
 	- Absorbing
 	- Stage complete
 - Music (KSP)
 + Level timer
-- All assets imported
++ All assets imported
 + Mass meter, (your's out of total)
 - Create 10 levels

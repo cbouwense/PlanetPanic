@@ -16,6 +16,6 @@ public class FollowBlackHole : MonoBehaviour {
         transform.position = new Vector3(blackHole.transform.position.x,
                                          blackHole.transform.position.y,
                                          transform.position.z);
-        
+        GetComponent<Camera>().orthographicSize = blackHole.transform.root.localScale.x + 8;
     }
 }
