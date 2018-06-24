@@ -5,7 +5,7 @@ using System.Linq;
 
 public class Attractor : MonoBehaviour {
     
-    protected const float G = 10.0f;
+    protected const float G = 25.0f;
     public List<GameObject> bodyList;
 
     private void Start()
