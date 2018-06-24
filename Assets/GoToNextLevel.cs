@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class GoToNextLevel : MonoBehaviour {
 
     public GameObject sceneUtils;
+    private TimerController timer;
     
     void Start()
     {
         sceneUtils = GameObject.Find("SceneUtils");
+        timer = sceneUtils.GetComponent<TimerController>();
     }
 
 	private void OnCollisionEnter2D(Collision2D col)
@@ -27,4 +29,16 @@ public class GoToNextLevel : MonoBehaviour {
             }
         }
     }
+
+    void Update()
+    {
+        if (timer.finished)
+        {
+            // TODO: UI popup prompting to go reset level, go to menu, or quit
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            return;
+            
+        }
+    }
+
 }

@@ -21,7 +21,7 @@ public class Attractor : MonoBehaviour {
         Rigidbody2D myRB = transform.parent.GetComponent<Rigidbody2D>();
         float radius = Vector2.Distance(target.transform.position, transform.position);
         float gravForce = G * myRB.mass * target.GetComponent<Rigidbody2D>().mass / Mathf.Pow(radius, 2);
-
+        
         // Get vector from target to us
         Vector2 target2Us = transform.position - target.transform.position;
         Vector2 succForce = target2Us.normalized * gravForce;
