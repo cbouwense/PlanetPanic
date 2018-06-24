@@ -6,7 +6,7 @@ public class SpinnyBoi : MonoBehaviour {
 
 	void Update()
     {
-        GetComponent<Rigidbody2D>().angularVelocity = -25;
+        GetComponent<Rigidbody2D>().angularVelocity = -20;
     }
 
 }
