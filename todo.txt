@@ -4,8 +4,8 @@
 + Ability to hit blackhole
 	+ no net momentum
 + If something is smaller than you, absorb it
-- Gravity effects on every object
-- Gain mass from absorbtions
++ Gravity effects on every object
++ Gain mass from absorbtions
++ Go to next level after hitting goal with mass
 - Time limit for gaining enough mass
-- Go to next level
 - Go through all levels to win
