@@ -8,7 +8,7 @@ MVP:
 + Gravity effects on every object
 + Gain mass from absorbtions
 + Go to next level
-- Time limit for gaining enough mass
++ Time limit for gaining enough mass
 - Go through all levels to win
 
 Finish:
@@ -21,7 +21,7 @@ Finish:
 	- Absorbing
 	- Stage complete
 - Music (KSP)
-- Level timer
++ Level timer
 - All assets imported
-- Mass meter, (your's out of total)
++ Mass meter, (your's out of total)
 - Create 10 levels

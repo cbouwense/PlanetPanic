@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class Attractor : MonoBehaviour {
     
-    // TODO: make this something meaningful eventually
-    protected const float G = 100.0f;
+    protected const float G = 10.0f;
+    private List<GameObject> bodyList;
 
-/**  //////   ///    ///  ///////////  ///////////
- *  ///  ///  ///    ///  ///     ///  ///     ///
- *  ///       ///    ///  ///          ///
- *   //////   ///    ///  ///          ///
- *       ///  ///    ///  ///          ///
- *  ///  ///  //////////  ///     ///  ///     ///
- *   //////   //////////  ///////////  ///////////
- */ 
+    private void Start()
+    {
+        bodyList = new List<GameObject>();
+    }
+
+    /**  //////   ///    ///  ///////////  ///////////
+     *  ///  ///  ///    ///  ///     ///  ///     ///
+     *  ///       ///    ///  ///          ///
+     *   //////   ///    ///  ///          ///
+     *       ///  ///    ///  ///          ///
+     *  ///  ///  //////////  ///     ///  ///     ///
+     *   //////   //////////  ///////////  ///////////
+     */
     void succ(GameObject target)
     {
+        Debug.Log("I'm " + transform.parent.name + " succing " + target.name);
         // Calculate force due to gravity
         Rigidbody2D myRB = transform.parent.GetComponent<Rigidbody2D>();
         float radius = Vector2.Distance(target.transform.position, transform.position);
@@ -30,12 +36,28 @@ public class Attractor : MonoBehaviour {
         target.GetComponent<Rigidbody2D>().AddForce(succForce);
     }
 
-    void OnTriggerStay2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Planet" && col.gameObject.GetComponent<Rigidbody2D>())
+        if (!(tag == "Planet" && col.gameObject.tag == "Planet") && col.transform.parent.gameObject.GetComponent<Rigidbody2D>())
         {
-            succ(col.gameObject);
-        } 
+            Debug.Log("Added " + col.name + " to bodylist");
+            bodyList.Add(col.transform.parent.gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        Debug.Log("Removed " + col.name + " from bodylist");
+        bodyList.Remove(col.transform.parent.gameObject);
+    }
+
+    private void FixedUpdate()
+    {
+        foreach (GameObject body in bodyList)
+        {
+            Debug.Log(this.name + " is succing " + body.name);
+            succ(body);
+        }
     }
 
 }

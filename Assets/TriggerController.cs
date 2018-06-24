@@ -6,20 +6,26 @@ public class TriggerController : MonoBehaviour {
 
     private GameObject blackHole;
     private bool smaller = false;
+    private PlanetInfo pi;
 
     void Start()
     {
         blackHole = GameObject.Find("BlackHole");
+        pi = GetComponent<PlanetInfo>();
     }
 
 	void Update ()
     {
 		if (!smaller)
         {
-            if (transform.localScale.x < blackHole.transform.localScale.x)
+            if (pi.mass < blackHole.transform.root.gameObject.GetComponent<Rigidbody2D>().mass)
             {
                 smaller = true;
-                GetComponent<CircleCollider2D>().isTrigger = true;
+                GetComponent<Rigidbody2D>().isKinematic = false;
+            }
+            else
+            {
+                GetComponent<Rigidbody2D>().isKinematic = true;
             }
         }
 	}

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Consume : MonoBehaviour {
     
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnCollisionEnter2D(Collision2D col)
     {
         // Check if object is consumable
-        if (col.gameObject.tag == "Planet" && col.transform.localScale.x < transform.localScale.x)
+        if (col.gameObject.tag == "Planet" && !col.gameObject.GetComponent<Rigidbody2D>().isKinematic)
         {
             Absorb(col.gameObject);
         }
