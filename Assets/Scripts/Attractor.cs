@@ -58,8 +58,15 @@ public class Attractor : MonoBehaviour {
     {
         for (int i = 0; i < bodyList.Count; i++)
         {
-            Debug.Log(this.name + " is succing " + bodyList[i].name);
-            succ(bodyList[i]);
+            try
+            {
+                Debug.Log(this.name + " is succing " + bodyList[i].name);
+                succ(bodyList[i]);
+            }
+            catch (MissingReferenceException e)
+            {
+                Debug.Log("B");
+            }
         }
     }
 

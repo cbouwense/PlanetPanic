@@ -15,6 +15,7 @@ public class TimerController : MonoBehaviour {
     private void Start()
     {
         levelInfo = GetComponent<LevelInfo>();
+        Debug.Log("level time req: " + levelInfo.timeReqs[SceneManager.GetActiveScene().buildIndex]);
         t = levelInfo.timeReqs[SceneManager.GetActiveScene().buildIndex];
     }
 
