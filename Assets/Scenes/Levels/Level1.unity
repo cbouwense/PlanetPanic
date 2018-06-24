@@ -196,8 +196,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 049c6dfcd3412c147acfd7517be8447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelMassReqs:
-  - 1.25
+  massReqs:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  timeReqs:
+  - 0
   - 0
   - 0
   - 0
@@ -288,6 +299,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59d8a6e7d67a9ff43bbcda6724819f41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &670348749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 670348742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a09d9cde4b0b954f8419c55f48ecdf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &670348751 stripped
@@ -490,7 +512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b50c6707491dd4b894c91c7fcaf61a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blackHole: {fileID: 670348742}
+  blackHole: {fileID: 0}
 --- !u!1001 &1085044304
 Prefab:
   m_ObjectHideFlags: 0
@@ -1106,6 +1128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4208c230110e94881213c74adcd7ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneUtils: {fileID: 0}
 --- !u!33 &2109724539
 MeshFilter:
   m_ObjectHideFlags: 0

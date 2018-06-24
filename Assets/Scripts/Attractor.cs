@@ -6,7 +6,7 @@ public class Attractor : MonoBehaviour {
 
     private List<GameObject> bodyList;
     // TODO: make this something meaningful eventually
-    protected const float G = 10.0f;
+    protected const float G = 100.0f;
 
 /**  //////   ///    ///  ///////////  ///////////
  *  ///  ///  ///    ///  ///     ///  ///     ///
@@ -49,20 +49,13 @@ public class Attractor : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerStay2D(Collider2D col)
     {
-        Debug.Log(col.gameObject.name + " entered " + this.name + "'s sphere of influence");
-        if (col.gameObject.GetComponent<Rigidbody2D>())
+        if (col.gameObject.tag == "Planet" && col.gameObject.GetComponent<Rigidbody2D>())
         {
-            bodyList.Add(col.gameObject);
+            succ(col.gameObject);
         }
             
-    }
-
-    void OnTriggerExit2D(Collider2D col)
-    {
-        Debug.Log(col.gameObject.name + " exited " + this.name + "'s sphere of influence");
-        bodyList.Remove(col.gameObject);
     }
     
     private bool targetIsSmaller(Rigidbody2D target)

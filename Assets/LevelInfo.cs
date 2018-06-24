@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LevelInfo : MonoBehaviour {
 
-    public float[] levelMassReqs;
+    public const int levelNum = 10;
+    public float[] massReqs = new float[levelNum];
+    public float[] timeReqs = new float[levelNum];
 
 }
