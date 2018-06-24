@@ -15,7 +15,7 @@ public class ShotController : MonoBehaviour {
 
     void OnMouseDrag()
     {
-        // Draw a dotted line between your cursor and the black hole.
+        // Draw a line between your cursor and the black hole.
         myLine.transform.position = transform.position;
         myLine.AddComponent<LineRenderer>();
 

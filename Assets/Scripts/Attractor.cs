@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Attractor : MonoBehaviour {
-
-    private List<GameObject> bodyList;
+    
     // TODO: make this something meaningful eventually
     protected const float G = 100.0f;
 
@@ -31,48 +30,12 @@ public class Attractor : MonoBehaviour {
         target.GetComponent<Rigidbody2D>().AddForce(succForce);
     }
 
-    void Start()
-    {
-        bodyList = new List<GameObject>();
-    }
-
-    void FixedUpdate()
-    {
-        foreach (GameObject body in bodyList)
-        {
-            // Only succ if it's black hole on planet action
-            if (!(tag == "Planet" && body.tag == "Planet"))
-            {
-                Debug.Log(this.name + " is succing " + body.name);
-                succ(body);
-            }
-        }
-    }
-
     void OnTriggerStay2D(Collider2D col)
     {
         if (col.gameObject.tag == "Planet" && col.gameObject.GetComponent<Rigidbody2D>())
         {
             succ(col.gameObject);
-        }
-            
-    }
-    
-    private bool targetIsSmaller(Rigidbody2D target)
-    {
-        Transform targetTransform = target.transform;
-        Debug.Log("targetTransform: " + targetTransform);
-
-        // Everything is a circle so we only have to check one dimension
-        if (targetTransform.localScale.x < transform.localScale.x)
-        {
-            Debug.Log(target.gameObject.name + " is smaller than " + this.name);
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        } 
     }
 
 }
